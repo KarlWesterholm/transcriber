@@ -1,0 +1,419 @@
+{
+    "_shards": {
+        "failed": 0,
+        "skipped": 0,
+        "successful": 1,
+        "total": 1
+    },
+    "hits": {
+        "hits": [
+            {
+                "_id": "7354817274060016928",
+                "_index": "content",
+                "_score": 15.999937,
+                "_source": {
+                    "captions": "mercedes @kmn_azet yourpage kmn deutschland azet scoupe afd mercedesbenz",
+                    "country": "DE",
+                    "create_time": 1712426847,
+                    "creator_follower_count": 5934,
+                    "creator_id": "6987647842153481221",
+                    "creator_username": "sjautolack",
+                    "desc": "@Kmn_Azet #mercedes #scoupe #foryou #yourpage #deutschland #afd #mercedesbenz ",
+                    "duration": 16,
+                    "engagement_rate": 10,
+                    "is_ad": false,
+                    "likes": 10162,
+                    "video_url": "https://api.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000co8ot47og65j3vagts00&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=ce56c057f6db4b878fdfbfd393c0b2f4&item_id=7354817274060016928&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmZhMmIzOTM3ZjA5NmNlZjc0MzNmZGQ4ZTBiMTU3Yzg5",
+                    "views": 101426
+                }
+            },
+            {
+                "_id": "7360356173960203553",
+                "_index": "content",
+                "_score": 15.619427,
+                "_source": {
+                    "captions": "youtube \ud83d\ude4f\ud83c\udffeleroyen \ud83d\ude2d\ud83d\udc80 afd leroyen werbevideo leroy2real twitch",
+                    "country": "DE",
+                    "create_time": 1713716471,
+                    "creator_follower_count": 395366,
+                    "creator_id": "7185103429630444549",
+                    "creator_username": "leroytoreal",
+                    "desc": "Twitch & YouTube : Leroy2Real \ud83d\ude4f\ud83c\udffe#leroyen ",
+                    "duration": 89,
+                    "engagement_rate": 12,
+                    "is_ad": false,
+                    "likes": 18606,
+                    "video_url": "https://api.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000coijomnog65vja5c6obg&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=2141b06d0ad64f83bc06aaadd937fbaa&item_id=7360356173960203553&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjY2NzI0YWFjOGY2Mjc1NDhhY2YwNDk2NzY2NTYzMDQy",
+                    "views": 160839
+                }
+            },
+            {
+                "_id": "7358442823659703585",
+                "_index": "content",
+                "_score": 14.921538,
+                "_source": {
+                    "captions": "selbstbestimmungsgesetz berlin deutschland frauenarzt pov beim afd rufst und beschlossen pov: du",
+                    "country": "DE",
+                    "create_time": 1713270986,
+                    "creator_follower_count": 297749,
+                    "creator_id": "7032999510519825413",
+                    "creator_username": "miguelklaussafd",
+                    "desc": "#AfD #berlin #deutschland ",
+                    "duration": 29,
+                    "engagement_rate": 8,
+                    "is_ad": false,
+                    "likes": 16240,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000cof6spvog65pig27hklg&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=adef0fd18a894821a2e1b41b3a66bc9a&item_id=7358442823659703585&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjExZTY3ZjRmNzY2NmYwYmEzNzE0MGY2YTQ0YmRlZDA2",
+                    "views": 193135
+                }
+            },
+            {
+                "_id": "7357032229215816992",
+                "_index": "content",
+                "_score": 14.600761,
+                "_source": {
+                    "captions": "reporter nach rn bj\u00f6rn h\u00f6cke afd bj rnh bj\u00f6rnh\u00f6cke cke von tv duell",
+                    "country": "DE",
+                    "create_time": 1712942556,
+                    "creator_follower_count": 72758,
+                    "creator_id": "6816781670671188998",
+                    "creator_username": "walid021079",
+                    "desc": "#bj\u00f6rnh\u00f6cke #afd #reporter ",
+                    "duration": 64,
+                    "engagement_rate": 1,
+                    "is_ad": false,
+                    "likes": 2392,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000cocmqtfog65ll98dfhh0&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=b2d8d673f2da44b882752e5aabbe3f31&item_id=7357032229215816992&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjk0YTcyY2M5YjQ0NGYyOWIzODI5ZTMzOTY4ZGQ1Njhh",
+                    "views": 220045
+                }
+            },
+            {
+                "_id": "7360359591290457376",
+                "_index": "content",
+                "_score": 12.98822,
+                "_source": {
+                    "captions": "csu ampelmussweg straub bei verfassungsschutz hausdurchsuchung meinungsfreiheit cdu demokratie rdergesetz afd beschlagnahmen politik demokratief\u00f6rdergesetz fdp moritz spd demokratief und",
+                    "country": "DE",
+                    "create_time": 1713717268,
+                    "creator_follower_count": 16990,
+                    "creator_id": "6650175926969090053",
+                    "creator_username": "tattootom22",
+                    "desc": "#demokratie #demokratief\u00f6rdergesetz #politik #verfassungsschutz #afd #cdu #csu #fdp #spd #ampelmussweg #meinungsfreiheit ",
+                    "duration": 566,
+                    "engagement_rate": 5,
+                    "is_ad": false,
+                    "likes": 6069,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000coijur7og65smtopc08g&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=12c423471355457585d91a270d9bfd83&item_id=7360359591290457376&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmY3ODBlMWYxOTdlMGMxNGY0ZDRiMTQ4NWU3NjQ4YWI4",
+                    "views": 121180
+                }
+            },
+            {
+                "_id": "7357032299826793760",
+                "_index": "content",
+                "_score": 12.76206,
+                "_source": {
+                    "captions": "trending im fy demo viral afd giggsen monte stream realtalk mitten montanablack88 trend friend friends einer landen viralvideo und montanablack",
+                    "country": "DE",
+                    "create_time": 1712942588,
+                    "creator_follower_count": 184154,
+                    "creator_id": "7331058190324450337",
+                    "creator_username": "montanablackclips",
+                    "desc": "Monte und Giggsen landen im Stream mitten in einer AfD Demo #monte #montanablack #montanablack88 #demo #realtalk #friend #friends #realtalk #foryou #foryoupage #fy #fyp #viral #viralvideo #trend #trending",
+                    "duration": 75,
+                    "engagement_rate": 7,
+                    "is_ad": false,
+                    "likes": 31123,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f025gc0000cocmqrnog65p9gvqd14g&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=4d39a5c67dcc4e099bbc0a3baea6dfce&item_id=7357032299826793760&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjAxZDk4MjZjZDUyOGI0YjZiNjNhNTJhNzgwYjIyNTQ5",
+                    "views": 450076
+                }
+            },
+            {
+                "_id": "7359120807378898209",
+                "_index": "content",
+                "_score": 12.339137,
+                "_source": {
+                    "captions": "aladdin bleiben) rdich fy frankfurt bart deutsch f\u00fcrdich \ud83c\udde9\ud83c\uddea (hoffentlich afd hoffentlich versprochen mit bleiben \ud83d\udc10bart \ud83c\uddf5\ud83c\uddf0 @aladdin darf bin ich",
+                    "country": "DE",
+                    "create_time": 1713428844,
+                    "creator_follower_count": 2491,
+                    "creator_id": "7055780337754801158",
+                    "creator_username": "ibtasamauspakistan",
+                    "desc": "Versprochen bin deutsch (hoffentlich darf ich bleiben) #fyp #f\u00fcrdich #\ud83c\udde9\ud83c\uddea #\ud83c\uddf5\ud83c\uddf0 #frankfurt #afd #fy @aladdin mit \ud83d\udc10bart ",
+                    "duration": 7,
+                    "engagement_rate": 6,
+                    "is_ad": false,
+                    "likes": 10333,
+                    "video_url": "https://api.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000cogdi57og65lu5tha3og&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=6afa30d0ca3245b7b077dfa04ce5f060&item_id=7359120807378898209&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjRmZjhjMjU4Y2JkNTY4YjA1MjM1MjU0ZTJlMDliNzUx",
+                    "views": 166502
+                }
+            },
+            {
+                "_id": "7354030596953296161",
+                "_index": "content",
+                "_score": 12.141125,
+                "_source": {
+                    "captions": "gibt kritik spa\u00dfmusssein spa deutsch funny fyy viral man afd deutschland\ud83c\udde9\ud83c\uddea sagen foryoup deutschland das spa\u00df darf wieder nur musssein aber ist",
+                    "country": "DE",
+                    "create_time": 1712243683,
+                    "creator_follower_count": 153641,
+                    "creator_id": "6621076071046266885",
+                    "creator_username": "cickobandido",
+                    "desc": "Das gibt wieder Kritik aber ist nur spa\u00df \ud83d\ude02 #deutschland\ud83c\udde9\ud83c\uddea #deutsch #spa\u00df #afd #spa\u00dfmusssein #funny #viral #foryou #fyy #fyp #foryoup ",
+                    "duration": 17,
+                    "engagement_rate": 10,
+                    "is_ad": false,
+                    "likes": 51745,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000co7c6n7og65vla878elg&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=0296616b77354356b1166f6792aaac0f&item_id=7354030596953296161&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmQ1MzljYWUyY2FkMmRiZDAyZDM3MzNmN2Q3YWRiYjZj",
+                    "views": 507379
+                }
+            },
+            {
+                "_id": "7354094885949033760",
+                "_index": "content",
+                "_score": 12.141125,
+                "_source": {
+                    "captions": "csu niedergestochen deitschland cdu demokratie deitschland\ud83c\udde9\ud83c\uddea von j\u00e4hrigen afd politik grenzen j\u00e4hriges hriges hrigen gr\u00fcne syria fdp spd kind gr migration ne",
+                    "country": "DE",
+                    "create_time": 1712258653,
+                    "creator_follower_count": 16990,
+                    "creator_id": "6650175926969090053",
+                    "creator_username": "tattootom22",
+                    "desc": "#deitschland\ud83c\udde9\ud83c\uddea #afd #spd #cdu #csu #gr\u00fcne #fdp #demokratie #migration #grenzen #politik ",
+                    "duration": 489,
+                    "engagement_rate": 5,
+                    "is_ad": false,
+                    "likes": 6642,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000co7focfog65rpqf34pvg&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=bbe90b8f73d24ebd91ccdb941bebf730&item_id=7354094885949033760&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmIxODUwNGQ2M2E5OTE4ZmY0YmZhZmU4MjgxZmVhMzk2",
+                    "views": 143615
+                }
+            },
+            {
+                "_id": "7357759389119417632",
+                "_index": "content",
+                "_score": 11.951334,
+                "_source": {
+                    "captions": "tok fy hamburg wieso hahahahaaha viral auf gewinnt gerade film? afd \ud83c\uddee\ud83c\uddf7 ermia ermia_313 ihrem uft wenn sind l\u00e4uft das n4zis film tik clubs",
+                    "country": "DE",
+                    "create_time": 1713111863,
+                    "creator_follower_count": 4875,
+                    "creator_id": "129721756642279424",
+                    "creator_username": "ermia_313",
+                    "desc": "Das l\u00e4uft 2030 in clubs wenn afd gewinnt #ermia_313 #fy #viral #fyp\u30b7 #foryou #\ud83c\uddee\ud83c\uddf7 #hamburg ",
+                    "duration": 16,
+                    "engagement_rate": 10,
+                    "is_ad": false,
+                    "likes": 9806,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000coe04t7og65s567cne6g&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=e332a8015d5f404c85c120cbc81f0c66&item_id=7357759389119417632&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjA0ZjA5NWIwNzY3MzI4NTJiZTM0MWIzZjg2OTBmMTVm",
+                    "views": 101412
+                }
+            },
+            {
+                "_id": "7354819667585731872",
+                "_index": "content",
+                "_score": 11.951334,
+                "_source": {
+                    "captions": "guckt \ud83d\ude0d\ud83d\ude0d seine fy pov weg nie lets pov: dieses \ud83c\udde9\ud83c\uddea von deine afd tiktoks land goo \ud83e\udd70\ud83d\ude0d liebe hier mama ich",
+                    "country": "DE",
+                    "create_time": 1712427403,
+                    "creator_follower_count": 195434,
+                    "creator_id": "6838700880095757318",
+                    "creator_username": "brs_yagmur",
+                    "desc": "#fy ich liebe dieses land ich will nie weg von hier \ud83d\ude0d\ud83d\ude0d Lets goo \ud83c\udde9\ud83c\uddea AFD \ud83e\udd70\ud83d\ude0d",
+                    "duration": 14,
+                    "engagement_rate": 8,
+                    "is_ad": false,
+                    "likes": 25761,
+                    "video_url": "https://api.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000co8p2n7og65hkhbhoktg&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=ca1e5eadb0d04dcb99ac6c3cb7027794&item_id=7354819667585731872&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmM2YTU1ODViMzZjMGIxOTk4NGRlOTQzMTFiZTE1NjYy",
+                    "views": 320955
+                }
+            },
+            {
+                "_id": "7359270425345428769",
+                "_index": "content",
+                "_score": 11.594456,
+                "_source": {
+                    "captions": "chrupalla europawahl h\u00f6cke jungealternative rnh germany weidel afd maxkrah politik europa europe maximiliankrah ja bj\u00f6rnh\u00f6cke deshalbafd politics bj krah, cke deutschland krah maximilian aliceweidel tinochrupalla wahlen",
+                    "country": "DE",
+                    "create_time": 1713463676,
+                    "creator_follower_count": 8817,
+                    "creator_id": "7221147590317802502",
+                    "creator_username": "cxrv1n",
+                    "desc": "Maximilian Krah, AfD \ud83d\udc99 #deshalbafd #afd #jungealternative #ja #maxkrah #maximiliankrah #krah #h\u00f6cke #bj\u00f6rnh\u00f6cke #weidel #aliceweidel #chrupalla #tinochrupalla #europawahl #wahlen #politik #politics #europa #europe #germany #deutschland ",
+                    "duration": 73,
+                    "engagement_rate": 14,
+                    "is_ad": false,
+                    "likes": 34829,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000coglv5fog65juvn2qu10&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=648e2e26ecd24b93ae7ac0ccb6642feb&item_id=7359270425345428769&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmM1MTU5YjgwYTllNzA3NjU5ZGY5MDQ3ZDY1MWI0Yjgx",
+                    "views": 247970
+                }
+            },
+            {
+                "_id": "7356574966659304737",
+                "_index": "content",
+                "_score": 11.594456,
+                "_source": {
+                    "captions": "ohne ruf die nder macht guten den selber w\u00e4hlen. von afd kaputt sehe hlen spass ihr ausl wenn lasstesviralegehen manche goviral foryourpage fyp\u30b7\u309a ausl\u00e4nder ich",
+                    "country": "DE",
+                    "create_time": 1712836092,
+                    "creator_follower_count": 4610,
+                    "creator_id": "6965915371276125189",
+                    "creator_username": "sueb7an",
+                    "desc": "ihr macht von den guten den ruf kaputt #foryou #fyp #goviral #foryourpage #fyp\u30b7\u309a #lasstesviralegehen ",
+                    "duration": 15,
+                    "engagement_rate": 16,
+                    "is_ad": false,
+                    "likes": 65657,
+                    "video_url": "https://api.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000cobsrp7og65nsvelibd0&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=1ebb5c2511654042a05e2bb9b242b07a&item_id=7356574966659304737&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjUxNjUxYTViNDkyM2U3YjZlMWM1N2UwZDFkNzNhZjQ0",
+                    "views": 418061
+                }
+            },
+            {
+                "_id": "7354028474023021857",
+                "_index": "content",
+                "_score": 11.426479,
+                "_source": {
+                    "captions": "ran! linke unserlandzuerst platz wir haben selber ran afd alternativef\u00fcrdeutschland doch rdeutschland platz? wohnungsnot wirhabenplatz alternativef einwanderung sollen gr\u00fcne nzenmaier willkommenskultur massenmigration m\u00fcnzenmaier und gr migration ne",
+                    "country": "DE",
+                    "create_time": 1712243187,
+                    "creator_follower_count": 73821,
+                    "creator_id": "7169135662062191621",
+                    "creator_username": "muenzenmaier",
+                    "desc": "Wir haben Platz? Gr\u00fcne und Linke sollen doch selber ran! #wirhabenplatz #migration #einwanderung #wohnungsnot #massenmigration #gr\u00fcne #linke #willkommenskultur #afd #m\u00fcnzenmaier #alternativef\u00fcrdeutschland #unserlandzuerst ",
+                    "duration": 38,
+                    "engagement_rate": 11,
+                    "is_ad": false,
+                    "likes": 32083,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000co7c2evog65u72h9rma0&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=6cbe7876c0ca46e5bc81e3424d6acba3&item_id=7354028474023021857&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmQ4YjVjMjZkYTc5YjU2YWM4ZTVjY2IxMzk2ZGFmNWFm",
+                    "views": 294488
+                }
+            },
+            {
+                "_id": "7353923682282229024",
+                "_index": "content",
+                "_score": 10.287084,
+                "_source": {
+                    "captions": "abschiebung\ud83e\udd7a hartz4unddertaggeh\u00f6rtdir rdich fy tv afdfraktion \ud83d\udc99\ud83c\udde9\ud83c\uddea @jobcenter_tv\ud83c\uddf2\ud83c\udde6 f\u00fcrdich strassenumfrage afd bleiben? rtdir abschiebung jobcenter bleiben hartz4unddertaggeh er strassenumfragen \ud83d\udc99\ud83d\udc99\ud83d\udc99\ud83c\udde9\ud83c\uddea\ud83c\udde9\ud83c\uddea\ud83c\udde9\ud83c\uddea\ud83c\udde9\ud83c\uddea f\u00fcrdichseite\u30b7 herrjobcenter videoviral rdichseite darf",
+                    "country": "DE",
+                    "create_time": 1712218793,
+                    "creator_follower_count": 26451,
+                    "creator_id": "7168568451237413894",
+                    "creator_username": "jobcenter_tv",
+                    "desc": "ABSCHIEBUNG \ud83d\udc99\ud83c\udde9\ud83c\uddea ? #herrjobcenter #fy #f\u00fcrdich #strassenumfrage #f\u00fcrdichseite\u30b7 #videoviral #foryou #fyp\u30b7 #strassenumfragen #hartz4unddertaggeh\u00f6rtdir #abschiebung\ud83e\udd7a #afd #afdfraktion  @JOBCENTER_TV\ud83c\uddf2\ud83c\udde6 ",
+                    "duration": 5,
+                    "engagement_rate": 1,
+                    "is_ad": false,
+                    "likes": 921,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000co7653vog65hp8ptute0&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=f778667d16e040fea22c64a1cc3ec5b0&item_id=7353923682282229024&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjQwYTg3MjllYmU5MDRiYjE1OWRmOWJiMTVjY2IwYmU5",
+                    "views": 171560
+                }
+            },
+            {
+                "_id": "7360364364760648992",
+                "_index": "content",
+                "_score": 9.71924,
+                "_source": {
+                    "captions": "fl\u00fcchtlinge rdich fy fachkr tv afdfraktion b\u00fcrgergeld @jobcenter_tv\ud83c\uddf2\ud83c\udde6 f\u00fcrdich strassenumfrage afd unsere rgergeld fl jobcenter fte chtlinge \u26a0\ufe0fherrjobcenter \ud83d\ude21\ud83d\ude21\ud83d\ude21\ud83c\udde9\ud83c\uddea\ud83c\udde9\ud83c\uddea\ud83c\udde9\ud83c\uddea\ud83c\udde9\ud83c\uddea\ud83c\udde9\ud83c\uddea\ud83c\udde9\ud83c\uddea\ud83c\udde9\ud83c\uddea strassenumfragen f\u00fcrdichseite\u30b7 mangel herrjobcenter videoviral ftemangel fachkr\u00e4fte rdichseite hartz4 fachkr\u00e4ftemangel",
+                    "country": "DE",
+                    "create_time": 1713718378,
+                    "creator_follower_count": 26451,
+                    "creator_id": "7168568451237413894",
+                    "creator_username": "jobcenter_tv",
+                    "desc": "FACHKR\u00c4FTE MANGEL \u26a0\ufe0f#herrjobcenter #fy #strassenumfrage #videoviral #foryou #strassenumfragen #jobcenter #b\u00fcrgergeld #hartz4 #afd #afdfraktion #f\u00fcrdich #f\u00fcrdichseite\u30b7 #fyp\u30b7 #fachkr\u00e4ftemangel #fl\u00fcchtlinge  @JOBCENTER_TV\ud83c\uddf2\ud83c\udde6 ",
+                    "duration": 65,
+                    "engagement_rate": 2,
+                    "is_ad": false,
+                    "likes": 3389,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000coik7uvog65tmi3dfokg&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=e6d6201422264d8c80c57a061de9d9e2&item_id=7360364364760648992&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjhhNGIzNGM0YTUyNWQyMTYyODdmZGE5MGIxNDk4NWJm",
+                    "views": 180740
+                }
+            },
+            {
+                "_id": "7354605162347941152",
+                "_index": "content",
+                "_score": 8.9743595,
+                "_source": {
+                    "captions": "verarschen. ca. abgestochen hat, ca steuerzahler lter hlen werdenden hen verarschen ndung pflegeversicherungsbeitrag nicht die kommt erh syrer erh\u00f6hen 4-j\u00e4hrige hrige kostet monat. den mit dann altparteien lasst wangenimallg hat psychiatrie einer afd 15.000\u20ac/ gesellschaft eine psychiatrie. \u00e4lter begr\u00fcndung politiker euch reclaimtiktok w\u00e4hlen! monat wangenimallg\u00e4u der begr gesellschaft.",
+                    "country": "DE",
+                    "create_time": 1712377496,
+                    "creator_follower_count": 295947,
+                    "creator_id": "7032999510519825413",
+                    "creator_username": "miguelklaussafd",
+                    "desc": "#wangenimallg\u00e4u #reclaimtiktok ",
+                    "duration": 6,
+                    "engagement_rate": 4,
+                    "is_ad": false,
+                    "likes": 7876,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000co8cqpfog65rfhpib7l0&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=fb98e5f8fb5f491c8946cd21cfefe696&item_id=7354605162347941152&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmRkNzY0NjY3ZDFiOGIzNWU2NWQ4YTIyNGU3NTM5Y2Nk",
+                    "views": 210957
+                }
+            },
+            {
+                "_id": "7361047818728951072",
+                "_index": "content",
+                "_score": 8.378151,
+                "_source": {
+                    "captions": "csu hardtekk eskaliert berlin techno labels gender ostdeutschland eventbranche hardtechno hardstyle show konzert party deutsch genderpaygap nachtleben gleichberechtigung veranstaltungen ddr cdu musik events release afd heimat nacht vaterland leben \ud83e\udd71\ud83e\udd71\ud83e\udd71 feminineenergy lgtbq business industry feminusmus feminism ossi industrie charts @bi liebe tour m\u00e4n bi edm booking es deutschland music club dj tekk blau paygap",
+                    "country": "DE",
+                    "create_time": 1713877507,
+                    "creator_follower_count": 98554,
+                    "creator_id": "6756979746418803718",
+                    "creator_username": "justinpollnikofficial",
+                    "desc": "\ud83e\udd71\ud83e\udd71\ud83e\udd71 @Bi M\u00e4n #gleichberechtigung #feminusmus #feminineenergy #gender #genderpaygap #paygap #dj #feminism #lgtbq #veranstaltungen #eventbranche #events #club #party #nachtleben #techno #berlin #tekk #hardtekk #hardtechno #hardstyle ",
+                    "duration": 13,
+                    "engagement_rate": 6,
+                    "is_ad": false,
+                    "likes": 6272,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000cojr267og65i5g7a3ft0&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=5b04d8086dac40f7b2ce9452c9e62a3a&item_id=7361047818728951072&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLjFkMTYxMGNiMzM4NWMyOTQxYjdkNjZjYWE5MGY2MTVl",
+                    "views": 100078
+                }
+            },
+            {
+                "_id": "7360609604528606496",
+                "_index": "content",
+                "_score": 7.304287,
+                "_source": {
+                    "captions": "1.juni wird (bei rfen gefordert\ud83e\udd2c deutschen mir einbezahlt goviral dr\u00fcckt ukrainer d\u00fcrfen des krass love also juni zahlt auch \u2764\ufe0f nnern viral funny hannover rentenkasse arbeiten. geld chtete jahre). und inzwischen rente ckt arbeiten m\u00e4nnern f\u00fcr tiktok bis gefl\u00fcchtete beantragen, music die fun redbull mit sozialleistungen fy kein klaut cute 57,5, beantragen zukunft sogar bindergeilste ab lassmachen bei gefl ulm germany followme m\u00fcssen frauen einfachyasin afd dr deutschland jahre ukrainische senden memes einbezahlt. blau deutsche ssen gefordert",
+                    "country": "DE",
+                    "create_time": 1713775488,
+                    "creator_follower_count": 49299,
+                    "creator_id": "6928899672836686854",
+                    "creator_username": "planetyasin01",
+                    "desc": "#einfachyasin #89250 #senden #ulm #fy #fyp #foryoupage #funny #foryou #redbull #lassmachen #krass #tiktok #viral #music #fun #cute #memes #funny #Love #followme #hannover #germany #goviral #bindergeilste #2024 #afd #deutschland ",
+                    "duration": 30,
+                    "engagement_rate": 2,
+                    "is_ad": false,
+                    "likes": 4498,
+                    "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000coj26o7og65iq7lsmogg&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=a8a3aaf79a844a15969b9a471c74439f&item_id=7360609604528606496&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmVmZTU1MzYyZTBlYjA4YTUzZDRhZTVjNTdjMjY0YjU2",
+                    "views": 188237
+                }
+            },
+            {
+                "_id": "7357016815492435233",
+                "_index": "content",
+                "_score": 6.3639336,
+                "_source": {
+                    "captions": "allerdings rden selbst kindern musste plenum! tun alle f\u00e4lle wagenknecht november des bundestags-vize standesamt per wahrung \u00e4ndern gesetz, sorgten bsw-chefin das sahra aufrufen auch nnen bundestags dem bsw tumult jugendliche nur eltern. erkl\u00e4rung tun, n\u00f6tige gesetz den beh zur beh\u00f6rden vorherige vize m\u00fcndlicher und monate einverst\u00e4ndnis im f\u00fcr lassen beiden sowie waren plenum tige \u00fcber jeder zw\u00f6lf die erkl ndlicher eltern gegen mit sein pau linke unter eine ber kann einreichen einfacher aufrufen. beim ab der bei (linke) hohen jahren m\u00fcssen petra haus k\u00f6nnen ist rung lf notwendig zw beratung chefin einverst afd ndnis dies lle einfacher, geschlecht respekts 1. einreichen. ndern ssen",
+                    "country": "DE",
+                    "create_time": 1712938965,
+                    "creator_follower_count": 313250,
+                    "creator_id": "7112901069700760581",
+                    "creator_username": "wasdieweltbewegt1",
+                    "desc": "",
+                    "duration": 61,
+                    "engagement_rate": 1,
+                    "is_ad": false,
+                    "likes": 5910,
+                    "video_url": "https://api.tiktokv.com/aweme/v1/play/?video_id=v0f044gc0000cocluhnog65v0qjfi63g&line=0&watermark=1&logo_name=tiktok_m&source=PUBLISH&file_id=ddcae2de8ee94bfd92a24bed229118ed&item_id=7357016815492435233&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmExZWQ0YWQ0YWEyMzMxOTczOGE5NjFiNzg5MzBmMzQ1",
+                    "views": 683509
+                }
+            }
+        ],
+        "max_score": 15.999937,
+        "total": {
+            "relation": "eq",
+            "value": 20
+        }
+    },
+    "timed_out": false,
+    "took": 22
+}

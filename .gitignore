@@ -3,4 +3,5 @@
 sandbox*
 urls.txt
 meta_OLD.csv
-papermill_output.ipynb
+papermill_output*.ipynb
+executions.log
