@@ -1,3 +1,6 @@
+.ipynb_checkpoints/
+
 sandbox*
 urls.txt
 meta_OLD.csv
+papermill_output.ipynb
