@@ -1,7 +1,9 @@
 .ipynb_checkpoints/
+__pycache__/
 
 sandbox*
 urls.txt
 meta_OLD.csv
 papermill_output*.ipynb
 executions.log
+.env
