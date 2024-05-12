@@ -73,7 +73,7 @@ class TiktokVideoDetails:
     @property
     def duration(self) -> int:
         """Duration of the tiktok in seconds. Defaults to 20."""
-        return int(self.details["video"].get("duration"), 20)
+        return int(self.details["video"].get("duration", 20))
 
 
     def get_transcriptions(self, disable_azure: bool = False) -> dict:
@@ -105,7 +105,7 @@ class TiktokVideoDetails:
 
             if not transcriptions:
                 video_filename = re.findall(pyk.url_regex, self.url)[0].replace("/", '_') + '.mp4' # taken from pyktok
-                # transcriptions = AzureConnector.get_ocr_from_azure(self.download_url)
+                # transcriptions = AzureConnector.get_ocr_from_azure(url=self.download_url)
                 self.transcription_source = "Azure Video Indexer"
 
 
