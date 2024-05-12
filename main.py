@@ -11,6 +11,40 @@ from tiktok_video_details import (
     HTTPRequestError
 )
 
+class StatCollector:
+    def __init__(self):
+        self.start_time = time.time()
+        self.successes = 0
+        self.private_videos = []
+        self.failed_requests = []
+
+    def add_success(self):
+        self.successes += 1
+
+    def add_private_video(self, url: str):
+        self.private_videos.append(url)
+
+    def add_failed_request(self, url: str):
+        self.failed_requests.append(url)
+
+    def print_stats(self):
+        end_time = time.time()
+        print("\n")
+        print("Private: \n", "\n\t".join(self.private_videos))
+        print("Failed: \n", "\n\t".join(self.failed_requests))
+        print("Successes: ", self.successes)
+        print("Private: ", len(self.private_videos))
+        print("Failed: ", len(self.failed_requests))
+        total_time = end_time - self.start_time
+        hours = total_time // 3600
+        minutes = (total_time % 3600) // 60
+        seconds = total_time - 3600 * hours - 60 * minutes
+        print("Total elapsed time: %dh %dm %.2fs" % (
+            hours,
+            minutes,
+            seconds
+        ))
+
 def print_progress_bar(percentage: float, bar_length: int = 20) -> None:
     normalizer = int(100 / bar_length)
     progress = '\r[%s%s] %.2f%%' % (
@@ -62,15 +96,12 @@ def save_tiktok_info_to_existing_csv(csv_filename: str):
 
     df = pd.read_csv(csv_filename)
 
-    successes = 0
-    private_videos = []
-    failed_requests = []
     total_rows = len(df)
     errors = {}
     en_transcriptions = {}
     de_transcriptions = {}
 
-    start_time = time.time()
+    stats = StatCollector()
 
     try:
         for index, row in df.iterrows():
@@ -81,17 +112,17 @@ def save_tiktok_info_to_existing_csv(csv_filename: str):
             try:
                 tt_obj = TiktokVideoDetails(url=url)
             except VideoIsPrivateError as error:
-                private_videos.append(url)
+                stats.add_private_video(url)
                 print('\n', error)
                 errors[index] = error
                 continue
             except (RequestReturnedNoneError, HTTPRequestError) as error:
-                failed_requests.append(url)
+                stats.add_failed_request(url)
                 print('\n', error)
                 errors[index] = error
                 continue
             except Exception as error:
-                failed_requests.append(url)
+                stats.add_failed_request(url)
                 print('\nUnexpected Exception occured:', error)
                 errors[index] = error
                 continue
@@ -100,7 +131,7 @@ def save_tiktok_info_to_existing_csv(csv_filename: str):
             try:
                 transcriptions = tt_obj.get_transcriptions(disable_azure=True)
                 if transcriptions:
-                    successes += 1
+                    stats.add_success()
                 else:
                     errors[index] = "No transcription provided by Tiktok"
             except Exception as error:
@@ -115,7 +146,8 @@ def save_tiktok_info_to_existing_csv(csv_filename: str):
     except Exception as error:
         print("\nUnexpected Exception occurred:", error)
     finally:
-        end_time = time.time()
+        stats.print_stats()
+
         target_filename = os.path.splitext(csv_filename)[0] + '_transcribed.csv'
         target_filename = 'test2.csv'
         new_df = df.assign(
@@ -123,22 +155,6 @@ def save_tiktok_info_to_existing_csv(csv_filename: str):
             german_transcript=de_transcriptions,
             error_reason=errors)
         new_df.to_csv(target_filename)
-
-        print("Private: \n", "\n".join(private_videos))
-        print("Failed: \n", "\n".join(failed_requests))
-        print("Successes: ", successes)
-        print("Private: ", len(private_videos))
-        print("Failed: ", len(failed_requests))
-        total_time = end_time - start_time
-        hours = total_time // 3600
-        minutes = (total_time % 3600) // 60
-        seconds = total_time - 3600 * hours - 60 * minutes
-        print("Total elapsed time: %dh %dm %.2fs" % (
-            hours,
-            minutes,
-            seconds
-        ))
-
 
 if __name__ == '__main__':
     save_tiktok_info_to_existing_csv(csv_filename="./data/tiktok_videos_based_on_hashtags_cleaned.csv")
