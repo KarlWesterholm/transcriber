@@ -41,6 +41,7 @@ class TiktokVideoDetails:
         :param url: a string representing a url to a tiktok video
         """
         self.transcription_source : str
+        self.transcriptions : dict = None
         self.url = url
         retries = 3
         while retries > 0:
@@ -116,7 +117,7 @@ class TiktokVideoDetails:
         """
         user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
         headers = {"User-Agent": user_agent}
-        transcriptions = {}
+        self.transcriptions = {}
 
         for info in self.details["video"].get("subtitleInfos", []):
             if (language := info["LanguageCodeName"]) in ["eng-US", "deu-DE"] and info["Format"] == "webvtt":
@@ -131,13 +132,13 @@ class TiktokVideoDetails:
                         print(error)
                         print(vtt)
                         continue
-                    transcriptions[language] = transcript
+                    self.transcriptions[language] = transcript
 
         self.transcription_source = "Tiktok"
 
-        if not transcriptions and not disable_azure:
+        if not self.transcriptions and not disable_azure:
             if True: # self.has_original_sound: # TODO Check if this is viable
-                transcriptions = self.get_transcription_from_azure()
+                self.transcriptions = self.get_transcription_from_azure()
                 self.transcription_source = "Azure Speech to Text"
 
             # TODO
@@ -147,7 +148,7 @@ class TiktokVideoDetails:
             #     self.transcription_source = "Azure Video Indexer"
 
 
-        return transcriptions
+        return self.transcriptions
 
     def save_data_to_csv_file(
             self, csv_filename: str,
@@ -166,14 +167,17 @@ class TiktokVideoDetails:
         # Gather video meta data
         meta_data = pyk.generate_data_row(video_obj=self.details).dropna(axis=1)
 
-        transcriptions = self.get_transcriptions(disable_azure=disable_azure)
+        if self.transcriptions is None:
+            self.get_transcriptions(disable_azure=disable_azure)
 
         # Add custom desired info
         meta_data["suggested_words"] = " / ".join(self.suggested_words)
         meta_data["url"] = self.url
         meta_data["transcription_source"] = self.transcription_source
-        meta_data["english_transcript"] = transcriptions.get("eng-US", np.nan)
-        meta_data["german_transcript"] = transcriptions.get("deu-DE", np.nan)
+        meta_data["english_transcript"] = self.transcriptions.get(
+            "eng-US", np.nan)
+        meta_data["german_transcript"] = self.transcriptions.get(
+            "deu-DE", np.nan)
 
         if os.path.exists(csv_filename):
             df = pd.read_csv(csv_filename, index_col=0)
