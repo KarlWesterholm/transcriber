@@ -102,9 +102,8 @@ class TiktokVideoDetails:
     def get_transcriptions(self, disable_azure: bool = False) -> dict:
         """Gets english and/or german transcriptions of the video.
 
-        If none are present and ``disable_azure=False`` and the video has
-        original sound, then the video is downloaded and sent to Azure
-        Speech to Text for transcribing.
+        If none are present and ``disable_azure=False``, then the video is
+        downloaded and sent to Azure Speech to Text for transcribing.
 
         Params
         ---
@@ -137,7 +136,7 @@ class TiktokVideoDetails:
         self.transcription_source = "Tiktok"
 
         if not transcriptions and not disable_azure:
-            if self.has_original_sound:
+            if True: # self.has_original_sound: # TODO Check if this is viable
                 transcriptions = self.get_transcription_from_azure()
                 self.transcription_source = "Azure Speech to Text"
 
