@@ -64,6 +64,8 @@ class TiktokVideoDetails:
 
     @property
     def has_original_sound(self) -> bool:
+        if sound_is_original := self.details["music"].get("original"):
+            return eval(sound_is_original.title())
         return self.details["music"]["authorName"] == self.details["author"]["nickname"]
 
     @property
@@ -111,11 +113,11 @@ class TiktokVideoDetails:
 
         return transcriptions
 
-    def save_data_to_csv_file(self, csv_filename: str):
+    def save_data_to_csv_file(self, csv_filename: str, disable_azure: bool = False):
         # Gather video meta data
-        meta_data = pyk.generate_data_row(video_obj=self.details)
+        meta_data = pyk.generate_data_row(video_obj=self.details).dropna(axis=1)
 
-        transcriptions = self.get_transcriptions(disable_azure=True)
+        transcriptions = self.get_transcriptions(disable_azure=disable_azure)
 
         # Add custom desired info
         meta_data["suggested_words"] = " / ".join(self.suggested_words)
@@ -138,7 +140,7 @@ class TiktokVideoDetails:
         video_filename = re.findall(pyk.url_regex, self.url)[0].replace("/", '_') + '.mp4' # taken from pyktok
         # Get audio from tiktok
         audio = VideoFileClip(video_filename).audio
-        audio_filename = 'tiktok_audio.wav'
+        audio_filename = os.path.splitext(video_filename) + '.wav'
         audio.write_audiofile(audio_filename)
 
         transcriptions = AzureConnector.translation_continuous_with_lid_from_multilingual_file(audio_filename)

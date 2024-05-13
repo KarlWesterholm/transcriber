@@ -30,8 +30,8 @@ class StatCollector:
     def print_stats(self):
         end_time = time.time()
         print("\n")
-        print("Private: \n", "\n\t".join(self.private_videos))
-        print("Failed: \n", "\n\t".join(self.failed_requests))
+        print("Private: \n\t", "\n\t".join(self.private_videos))
+        print("Failed: \n\t", "\n\t".join(self.failed_requests))
         print("Successes: ", self.successes)
         print("Private: ", len(self.private_videos))
         print("Failed: ", len(self.failed_requests))
@@ -92,7 +92,7 @@ def save_tiktok_info_to_existing_csv(csv_filename: str):
 
 
             try:
-                transcriptions = tt_obj.get_transcriptions(disable_azure=True)
+                transcriptions = tt_obj.get_transcriptions(disable_azure=False)
                 if transcriptions:
                     stats.add_success()
                 else:
@@ -119,4 +119,4 @@ def save_tiktok_info_to_existing_csv(csv_filename: str):
         new_df.to_csv(target_filename)
 
 if __name__ == '__main__':
-    save_tiktok_info_to_existing_csv(csv_filename="./data/tiktok_videos_based_on_hashtags_cleaned.csv")
+    save_tiktok_info_to_existing_csv(csv_filename="./data/filtered.csv")
