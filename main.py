@@ -12,22 +12,50 @@ from tiktok_video_details import (
 )
 
 class StatCollector:
-    def __init__(self):
+    """Provides an easy method of collecting and printing statistics
+    for tiktok video data collection
+    """
+    def __init__(self) -> None:
         self.start_time = time.time()
         self.successes = 0
         self.private_videos = []
         self.failed_requests = []
 
-    def add_success(self):
+    def add_success(self) -> None:
+        """Adds 1 to the success counter"""
         self.successes += 1
 
-    def add_private_video(self, url: str):
+    def add_private_video(self, url: str) -> None:
+        """Appends the ``url`` to the list of private videos to be returned
+        when ``print_stats()`` is called.
+
+        Params
+        ---
+        :param url: A string representing the url that links to a private video
+        """
         self.private_videos.append(url)
 
-    def add_failed_request(self, url: str):
+    def add_failed_request(self, url: str) -> None:
+        """Appends the ``url`` to the list of failed requests to be returned
+        when ``print_stats()`` is called.
+
+        Params
+        ---
+        :param url: A string representing the url that links to a failed video
+        """
         self.failed_requests.append(url)
 
-    def print_stats(self):
+    def print_stats(self) -> None:
+        """Prints the collected statistics
+
+        Prints:
+        - the list of collected private videos
+        - the list of failed requests
+        - Total successes
+        - Total Private
+        - Total Failed
+        - Total elapsed time in H M S.
+        """
         end_time = time.time()
         print("\n")
         print("Private: \n\t", "\n\t".join(self.private_videos))
@@ -46,6 +74,13 @@ class StatCollector:
         ))
 
 def print_progress_bar(percentage: float, bar_length: int = 20) -> None:
+    """Prints a simple progress bar based on an updated percentage
+
+    Params
+    ---
+    :param percentage: The percentage to be displayed
+    :param bar_length: The desired length of the bar, defaulted to 20 ``'='``
+    """
     normalizer = int(100 / bar_length)
     progress = '\r[%s%s] %.2f%%' % (
         '='*int(percentage/normalizer),
@@ -55,7 +90,16 @@ def print_progress_bar(percentage: float, bar_length: int = 20) -> None:
     print(progress, end='', flush=True)
 
 
-def save_tiktok_info_to_existing_csv(csv_filename: str):
+def save_tiktok_info_to_existing_csv(csv_filename: str) -> None:
+    """Gets tiktok urls from an existing .csv file and appends transcriptions
+    and errors to it.
+
+    Also collects and prints the statistics of the run.
+
+    Params
+    ---
+    :param csv_filename: string representing a path to an existing .csv file
+    """
 
     df = pd.read_csv(csv_filename)
 

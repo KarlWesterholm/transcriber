@@ -15,15 +15,31 @@ from azure_connector import AzureConnector
 pyk.specify_browser('chrome')
 
 class VideoIsPrivateError(Exception):
+    """Raised when a tiktok video's details are not present"""
     pass
 
 class RequestReturnedNoneError(Exception):
+    """Raised when the request to get tiktok video metadata has failed
+    due to Tiktok or other unknown reasons
+    """
     pass
 
 class HTTPRequestError(Exception):
+    """Raised when an exception occurred in making a request for tiktok
+    metadata due to an HTTP error from the ``requests`` library
+    """
     pass
 class TiktokVideoDetails:
-    def __init__(self, url: str):
+    """Creates an instance of a tiktok object, which allows easy methods of
+    obtaining information pertaining to the video linked by the ``url`` given
+    in the ``__init__()``
+    """
+    def __init__(self, url: str) -> None:
+        """
+        Params
+        ---
+        :param url: a string representing a url to a tiktok video
+        """
         self.transcription_source : str
         self.url = url
         retries = 3
@@ -56,20 +72,25 @@ class TiktokVideoDetails:
 
     @property
     def description(self) -> str:
+        """The description of the video"""
         return self.details.get("desc")
 
     @property
     def suggested_words(self) -> list:
+        """A list of suggested words associated with the video, can be empty"""
         return self.details.get("suggestedWords", [])
 
     @property
     def has_original_sound(self) -> bool:
+        """Returns ``True`` if the sound associated with the video is original.
+        ``False`` otherwise."""
         if sound_is_original := self.details["music"].get("original"):
             return eval(sound_is_original.title())
         return self.details["music"]["authorName"] == self.details["author"]["nickname"]
 
     @property
     def download_url(self) -> str:
+        """The url to use when downloading the video."""
         return self.details['video'].get('downloadAddr')
 
     @property
@@ -79,6 +100,21 @@ class TiktokVideoDetails:
 
 
     def get_transcriptions(self, disable_azure: bool = False) -> dict:
+        """Gets english and/or german transcriptions of the video.
+
+        If none are present and ``disable_azure=False`` and the video has
+        original sound, then the video is downloaded and sent to Azure
+        Speech to Text for transcribing.
+
+        Params
+        ---
+        :param disable_azure: (optional) Enables or disables Azure Speech
+            to Text. Default is ``False``.
+
+        Returns
+        ---
+        :returns: dict with possible keys 'eng-US', 'deu-DE' or empty.
+        """
         user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
         headers = {"User-Agent": user_agent}
         transcriptions = {}
@@ -113,7 +149,20 @@ class TiktokVideoDetails:
 
         return transcriptions
 
-    def save_data_to_csv_file(self, csv_filename: str, disable_azure: bool = False):
+    def save_data_to_csv_file(
+            self, csv_filename: str,
+            disable_azure: bool = False
+            ) -> None:
+        """Creates .csv file containing the videos metadata. If the file
+        already exists, the metadata will be appended to the existing .csv.
+
+        Params
+        ---
+        :param csv_filename: A string path to a .csv file that may or may not
+            exist
+        :param disable_azure: Enables or disables Azure when getting
+            transcriptions.
+        """
         # Gather video meta data
         meta_data = pyk.generate_data_row(video_obj=self.details).dropna(axis=1)
 
@@ -135,6 +184,14 @@ class TiktokVideoDetails:
         meta_data.to_csv(csv_filename)
 
     def get_transcription_from_azure(self) -> dict:
+        """Downloads and separates the audio of a tiktok video for
+        processing in Azure Speech to be trancribed.
+
+        Returns
+        ---
+        :returns: dictionary containing possible keys 'eng-US', 'deu-DE', or
+            empty
+        """
         # save audio/video and perform speech to text
         pyk.save_tiktok(self.url)
         video_filename = re.findall(pyk.url_regex, self.url)[0].replace("/", '_') + '.mp4' # taken from pyktok
