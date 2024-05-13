@@ -201,7 +201,7 @@ class TiktokVideoDetails:
         video_filename = re.findall(pyk.url_regex, self.url)[0].replace("/", '_') + '.mp4' # taken from pyktok
         # Get audio from tiktok
         audio = VideoFileClip(video_filename).audio
-        audio_filename = os.path.splitext(video_filename) + '.wav'
+        audio_filename = os.path.splitext(video_filename)[0] + '.wav'
         audio.write_audiofile(audio_filename)
 
         transcriptions = AzureConnector.translation_continuous_with_lid_from_multilingual_file(audio_filename)
