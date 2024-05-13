@@ -206,6 +206,8 @@ class TiktokVideoDetails:
 
         transcriptions = AzureConnector.translation_continuous_with_lid_from_multilingual_file(audio_filename)
 
+        audio.close()
+
         os.remove(video_filename)
         os.remove(audio_filename)
 
