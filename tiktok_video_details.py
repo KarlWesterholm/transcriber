@@ -30,9 +30,9 @@ class HTTPRequestError(Exception):
     """
     pass
 class TiktokVideoDetails:
-    """Creates an instance of a tiktok object, which allows easy methods of
-    obtaining information pertaining to the video linked by the ``url`` given
-    in the ``__init__()``
+    """Creates an instance of a tiktok object, which allows easy methods
+    of obtaining information pertaining to the video linked by the
+    ``url`` given in the ``__init__()``
     """
     def __init__(self, url: str) -> None:
         """
@@ -50,7 +50,9 @@ class TiktokVideoDetails:
             except (ReadTimeout, SSLError):
                 retries -= 1
                 if retries == 0:
-                    raise HTTPRequestError("\nEncountered an error when making the http request.")
+                    raise HTTPRequestError(
+                        "\nEncountered an error when making the http request."
+                        )
                 continue
             except Exception:
                 retries -= 1
@@ -60,14 +62,19 @@ class TiktokVideoDetails:
             if tt_json is None:
                 retries -= 1
                 if retries == 0:
-                    raise RequestReturnedNoneError("\nJson request returned None. Please try again later.")
+                    raise RequestReturnedNoneError(
+                        "\nJson request returned None. Please try again later."
+                        )
                 continue
             try:
                 self.details: dict = tt_json["__DEFAULT_SCOPE__"]["webapp.video-detail"]["itemInfo"]["itemStruct"]
             except KeyError:
                 retries -= 1
                 if retries == 0:
-                    raise VideoIsPrivateError("\nVideo details could not be parsed. Video is private or has been removed.")
+                    raise VideoIsPrivateError(
+                        "\nVideo details could not be parsed. "
+                        "Video is private or has been removed."
+                        )
                 continue
             break
 
@@ -78,16 +85,21 @@ class TiktokVideoDetails:
 
     @property
     def suggested_words(self) -> list:
-        """A list of suggested words associated with the video, can be empty"""
+        """A list of suggested words associated with the video,
+        can be empty
+        """
         return self.details.get("suggestedWords", [])
 
     @property
     def has_original_sound(self) -> bool:
-        """Returns ``True`` if the sound associated with the video is original.
-        ``False`` otherwise."""
+        """Returns ``True`` if the sound associated with the video is
+        list as original. Returns ``False`` otherwise.
+        """
         if sound_is_original := self.details["music"].get("original"):
             return eval(sound_is_original.title())
-        return self.details["music"]["authorName"] == self.details["author"]["nickname"]
+        music_author_name = self.details["music"]["authorName"]
+        video_author_nickname = self.details["author"]["nickname"]
+        return music_author_name == video_author_nickname
 
     @property
     def download_url(self) -> str:
@@ -103,8 +115,8 @@ class TiktokVideoDetails:
     def get_transcriptions(self, disable_azure: bool = False) -> dict:
         """Gets english and/or german transcriptions of the video.
 
-        If none are present and ``disable_azure=False``, then the video is
-        downloaded and sent to Azure Speech to Text for transcribing.
+        If none are present and ``disable_azure=False``, then the video
+        is downloaded and sent to Azure Speech to Text for transcribing.
 
         Params
         ---
@@ -115,12 +127,17 @@ class TiktokVideoDetails:
         ---
         :returns: dict with possible keys 'eng-US', 'deu-DE' or empty.
         """
-        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+        user_agent = (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/123.0.0.0 Safari/537.36"
+            )
         headers = {"User-Agent": user_agent}
         self.transcriptions = {}
 
         for info in self.details["video"].get("subtitleInfos", []):
-            if (language := info["LanguageCodeName"]) in ["eng-US", "deu-DE"] and info["Format"] == "webvtt":
+            if ((language := info["LanguageCodeName"]) in ["eng-US", "deu-DE"]
+                    and info["Format"] == "webvtt"):
                 result = requests.get(info["Url"], headers=headers)
                 if vtt := result.content.decode():
                     transcript = ""
@@ -143,8 +160,8 @@ class TiktokVideoDetails:
 
             # TODO
             # if not transcriptions:
-            #     video_filename = re.findall(pyk.url_regex, self.url)[0].replace("/", '_') + '.mp4' # taken from pyktok
-            #     # transcriptions = AzureConnector.get_ocr_from_azure(url=self.download_url)
+            #     transcriptions = AzureConnector.get_ocr_from_azure(
+            #       url=self.download_url)
             #     self.transcription_source = "Azure Video Indexer"
 
 
@@ -155,17 +172,21 @@ class TiktokVideoDetails:
             disable_azure: bool = False
             ) -> None:
         """Creates .csv file containing the videos metadata. If the file
-        already exists, the metadata will be appended to the existing .csv.
+        already exists, the metadata will be appended to the existing
+        data in the .csv file.
 
         Params
         ---
-        :param csv_filename: A string path to a .csv file that may or may not
-            exist
+        :param csv_filename: A string path to a .csv file that may or
+            may not exist
         :param disable_azure: Enables or disables Azure when getting
             transcriptions.
         """
         # Gather video meta data
-        meta_data = pyk.generate_data_row(video_obj=self.details).dropna(axis=1)
+        meta_data = pyk.generate_data_row(video_obj=self.details)
+
+        # Many columns come consistently empty, so we remove them here
+        meta_data = meta_data.dropna(axis=1)
 
         if self.transcriptions is None:
             self.get_transcriptions(disable_azure=disable_azure)
@@ -193,18 +214,22 @@ class TiktokVideoDetails:
 
         Returns
         ---
-        :returns: dictionary containing possible keys 'eng-US', 'deu-DE', or
-            empty
+        :returns: dictionary containing possible keys 'eng-US',
+            'deu-DE', or empty
         """
         # save audio/video and perform speech to text
+        # pyktok uses the below logic to name the file
         pyk.save_tiktok(self.url)
-        video_filename = re.findall(pyk.url_regex, self.url)[0].replace("/", '_') + '.mp4' # taken from pyktok
+        video_prefix = re.findall(pyk.url_regex, self.url)[0]
+        video_filename = video_prefix.replace("/", '_') + '.mp4'
+
         # Get audio from tiktok
         audio = VideoFileClip(video_filename).audio
         audio_filename = os.path.splitext(video_filename)[0] + '.wav'
         audio.write_audiofile(audio_filename)
 
-        transcriptions = AzureConnector.translation_continuous_with_lid_from_multilingual_file(audio_filename)
+        transcriptions = AzureConnector.translation_continuous_with_lid_from_multilingual_file(
+            audio_filename)
 
         audio.close()
 

@@ -26,8 +26,8 @@ class StatCollector:
         self.successes += 1
 
     def add_private_video(self, url: str) -> None:
-        """Appends the ``url`` to the list of private videos to be returned
-        when ``print_stats()`` is called.
+        """Appends the ``url`` to the list of private videos to be
+        returned when ``print_stats()`` is called.
 
         Params
         ---
@@ -36,8 +36,8 @@ class StatCollector:
         self.private_videos.append(url)
 
     def add_failed_request(self, url: str) -> None:
-        """Appends the ``url`` to the list of failed requests to be returned
-        when ``print_stats()`` is called.
+        """Appends the ``url`` to the list of failed requests to be
+        returned when ``print_stats()`` is called.
 
         Params
         ---
@@ -91,8 +91,8 @@ def print_progress_bar(percentage: float, bar_length: int = 20) -> None:
 
 
 def save_tiktok_info_to_existing_csv(csv_filename: str) -> None:
-    """Gets tiktok urls from an existing .csv file and appends transcriptions
-    and errors to it.
+    """Gets tiktok urls from an existing .csv file and appends
+    transcriptions and errors to it.
 
     Also collects and prints the statistics of the run.
 
@@ -114,7 +114,6 @@ def save_tiktok_info_to_existing_csv(csv_filename: str) -> None:
         for index, row in df.iterrows():
             completion_percentage = (index/total_rows)*100
             print_progress_bar(completion_percentage)
-            # url = f"https://www.tiktok.com/@{row["author_username"]}/video/{row["video_id"]}"
             url = row["url"]
             try:
                 tt_obj = TiktokVideoDetails(url=url)
@@ -155,7 +154,7 @@ def save_tiktok_info_to_existing_csv(csv_filename: str) -> None:
     finally:
         stats.print_stats()
 
-        target_filename = os.path.splitext(csv_filename)[0] + '_transcribed.csv'
+        target_filename = os.path.splitext(csv_filename)[0] + '_transcribed_copy.csv'
         new_df = df.assign(
             english_transcript=en_transcriptions,
             german_transcript=de_transcriptions,
@@ -163,4 +162,4 @@ def save_tiktok_info_to_existing_csv(csv_filename: str) -> None:
         new_df.to_csv(target_filename)
 
 if __name__ == '__main__':
-    save_tiktok_info_to_existing_csv(csv_filename="./data/filtered.csv")
+    save_tiktok_info_to_existing_csv(csv_filename="data/tiktok_videos_based_on_hashtags_cleaned.csv")
