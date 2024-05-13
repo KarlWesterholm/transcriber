@@ -140,10 +140,11 @@ class TiktokVideoDetails:
                 transcriptions = self.get_transcription_from_azure()
                 self.transcription_source = "Azure Speech to Text"
 
-            if not transcriptions:
-                video_filename = re.findall(pyk.url_regex, self.url)[0].replace("/", '_') + '.mp4' # taken from pyktok
-                # transcriptions = AzureConnector.get_ocr_from_azure(url=self.download_url)
-                self.transcription_source = "Azure Video Indexer"
+            # TODO
+            # if not transcriptions:
+            #     video_filename = re.findall(pyk.url_regex, self.url)[0].replace("/", '_') + '.mp4' # taken from pyktok
+            #     # transcriptions = AzureConnector.get_ocr_from_azure(url=self.download_url)
+            #     self.transcription_source = "Azure Video Indexer"
 
 
         return transcriptions
