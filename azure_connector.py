@@ -6,8 +6,8 @@ import requests
 import azure.cognitiveservices.speech as speechsdk
 from dotenv import load_dotenv
 
-# from VideoIndexerClient.Consts import Consts
-# from VideoIndexerClient.VideoIndexerClient import VideoIndexerClient
+from VideoIndexerClient.Consts import Consts
+from VideoIndexerClient.VideoIndexerClient import VideoIndexerClient
 
 LOG = logging.getLogger("transcriber.azure_connector")
 load_dotenv()
@@ -21,29 +21,36 @@ ACCOUNT_ID = os.environ["RECLAIM_TIKTOK_ACCOUNT_ID"]
 VIDEO_ACCESS_TOKEN = os.environ["AZURE_VIDEO_ACCESS_TOKEN"]
 
 class AzureConnector:
+    """Provides functionality for connecting to the Azure Endpoints"""
 
     """Function taken and slightly modified from https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/b55026a09e2f807db9289acd6cdd3b623f44b3e9/samples/python/console/translation_sample.py#L231"""
-    def translation_continuous_with_lid_from_multilingual_file(filename: str, speech_key: str = None, service_region: str = None) -> dict:
-        """performs continuous speech translation from a multi-lingual audio file, with continuous language identification"""
-        if speech_key is None:
-            speech_key = SPEECH_SUBSCRIPTION_KEY
-        if service_region is None:
-            service_region = REGION
+    def translation_continuous_with_lid_from_multilingual_file(
+            filename: str,
+            speech_key: str = None,
+            service_region:
+            str = None
+            ) -> dict:
+        """performs continuous speech translation from a multi-lingual
+        audio file, with continuous language identification
+        """
 
         # <TranslationContinuousWithLID>
 
-        # When you use Language ID with speech translation, you must set a v2 endpoint.
+        # When you use Language ID with speech translation,
+        # you must set a v2 endpoint.
         # This will be fixed in a future version of Speech SDK.
 
-        # Set up translation parameters, including the list of target (translated) languages.
-        endpoint_string = "wss://{}.stt.speech.microsoft.com/speech/universal/v2".format(service_region)
+        # Set up translation parameters,
+        # including the list of target (translated) languages.
+        endpoint_string = "wss://{}.stt.speech.microsoft.com/speech/universal/v2".format(service_region or REGION)
         translation_config = speechsdk.translation.SpeechTranslationConfig(
-            subscription=speech_key,
+            subscription=speech_key or SPEECH_SUBSCRIPTION_KEY,
             endpoint=endpoint_string,
             target_languages=('de', 'en'))
         audio_config = speechsdk.audio.AudioConfig(filename=filename)
 
-        # Since the spoken language in the input audio changes, you need to set the language identification to "Continuous" mode.
+        # Since the spoken language in the input audio changes,
+        # you need to set the language identification to "Continuous" mode.
         # (override the default value of "AtStart").
         translation_config.set_property(
             property_id=speechsdk.PropertyId.SpeechServiceConnection_LanguageIdMode, value='Continuous')
@@ -68,8 +75,14 @@ class AzureConnector:
 
                 nonlocal translations
 
-                translations["eng-US"] = translations.get("eng-US", "") + evt.result.translations["en"]
-                translations["deu-DE"] = translations.get("deu-DE", "") + evt.result.translations["de"]
+                # Add a space between each streamed caption and the
+                # previous translations
+                translations["eng-US"] = (translations.get("eng-US", "")
+                                          + evt.result.translations["en"]
+                                          + ' ')
+                translations["deu-DE"] = (translations.get("deu-DE", "")
+                                          + evt.result.translations["de"]
+                                          + ' ')
             elif evt.result.reason == speechsdk.ResultReason.RecognizedSpeech:
                 print("Recognized:\n {}".format(evt.result.text))
             elif evt.result.reason == speechsdk.ResultReason.NoMatch:
@@ -111,48 +124,60 @@ class AzureConnector:
 
         return translations
 
-    # def copied_get_ocr_from_azure(url: str, video_name: str, video_description: str = None, excluded_ai: list = None):
-    #     account_name = os.environ["ACCOUNT_NAME"]
+    def copied_get_ocr_from_azure(
+        url: str,
+        video_name: str,
+        video_description: str = None,
+        excluded_ai: list = None
+        ) -> dict:
+        """
 
-    #     api_version = '2024-01-01'
-    #     api_endpoint = 'https://api.videoindexer.ai'
-    #     azure_resource_manager = 'https://management.azure.com'
+        Make sure to be logged in via 'az' cli for this to work
+        """
+        api_version = '2024-01-01'
+        api_endpoint = 'https://api.videoindexer.ai'
+        azure_resource_manager = 'https://management.azure.com'
 
-    #     consts = Consts(
-    #         api_version,
-    #         api_endpoint,
-    #         azure_resource_manager,
-    #         account_name,
-    #         RESOURCE_GROUP,
-    #         SUBSCRIPTION_ID
-    #         )
+        consts = Consts(
+            api_version,
+            api_endpoint,
+            azure_resource_manager,
+            "tiktok-indexer",
+            RESOURCE_GROUP,
+            SUBSCRIPTION_ID
+            )
 
-    #     client = VideoIndexerClient()
+        client = VideoIndexerClient()
 
-    #     client.authenticate_async(consts)
+        client.authenticate_async(consts)
 
-    #     if excluded_ai is None:
-    #         excluded_ai = ['Faces', 'ObservedPeople']
-    #     if video_description is None:
-    #         video_description = ""
+        if excluded_ai is None:
+            excluded_ai = ['Faces', 'ObservedPeople']
+        if video_description is None:
+            video_description = ""
 
-    #     video_id = client.upload_url_async(
-    #         video_name=video_name,
-    #         video_url=url,
-    #         excluded_ai=excluded_ai,
-    #         video_description=video_description,
-    #         wait_for_index=True
-    #     )
+        video_id = client.upload_url_async(
+            video_name=video_name,
+            video_url=url,
+            excluded_ai=excluded_ai,
+            video_description=video_description,
+            wait_for_index=True
+        )
 
-    #     results = client.get_video_async(video_id)
+        results = client.get_video_async(video_id)
 
-    #     print(results)
+        print(results)
 
-    #     return {}
+        return {}
 
     def get_ocr_from_azure(url: str):
         endpoint_url_root = f"https://api.videoindexer.ai/{REGION}/Accounts/{ACCOUNT_ID}"
-        access_token_url = f"https://management.azure.com/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.VideoIndexer/accounts/{ACCOUNT_ID}/generateAccessToken?api-version=2024-01-01"
+        access_token_url = ("https://management.azure.com/subscriptions/"
+                            f"{SUBSCRIPTION_ID}/resourceGroups/"
+                            f"{RESOURCE_GROUP}/providers/Microsoft.VideoIndexer/accounts/"
+                            f"{ACCOUNT_ID}/generateAccessToken?"
+                            "api-version=2024-01-01"
+                            )
         body = {
             "permissionType": "Contributor",
             "scope": "Account"
@@ -162,7 +187,10 @@ class AzureConnector:
         print(response.json())
         access_token = response.text.replace('"', '')
 
-        upload_video_url = f"{endpoint_url_root}/Videos?accessToken={access_token}&name=test&privacy=private&videoUrl={url}"
+        upload_video_url = (f"{endpoint_url_root}/Videos?"
+                            f"accessToken={access_token}&name=test&"
+                            f"privacy=private&videoUrl={url}"
+                            )
         response = requests.post(upload_video_url).json()
 
         if 'ErrorType' in response.keys():

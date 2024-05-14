@@ -156,7 +156,6 @@ class TiktokVideoDetails:
         if not self.transcriptions and not disable_azure:
             if True: # self.has_original_sound: # TODO Check if this is viable
                 self.transcriptions = self.get_transcription_from_azure()
-                self.transcription_source = "Azure Speech to Text"
 
             # TODO
             # if not transcriptions:
@@ -224,7 +223,8 @@ class TiktokVideoDetails:
         video_filename = video_prefix.replace("/", '_') + '.mp4'
 
         # Get audio from tiktok
-        audio = VideoFileClip(video_filename).audio
+        video_clip = VideoFileClip(video_filename)
+        audio = video_clip.audio
         audio_filename = os.path.splitext(video_filename)[0] + '.wav'
         audio.write_audiofile(audio_filename)
 
@@ -232,8 +232,11 @@ class TiktokVideoDetails:
             audio_filename)
 
         audio.close()
+        video_clip.close()
 
         os.remove(video_filename)
         os.remove(audio_filename)
+
+        self.transcription_source = "Azure Speech to Text"
 
         return transcriptions
