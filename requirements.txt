@@ -7,3 +7,4 @@ papermill
 moviepy
 azure-cognitiveservices-speech
 python-dotenv
+pyodbc
