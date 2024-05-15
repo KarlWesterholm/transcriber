@@ -168,7 +168,7 @@ class AzureConnector:
 
         print(results)
 
-        return {}
+        return {} # TODO Analyze 'results' and return proper result
 
     def get_ocr_from_azure(url: str):
         endpoint_url_root = f"https://api.videoindexer.ai/{REGION}/Accounts/{ACCOUNT_ID}"
